@@ -33,7 +33,7 @@ WARNING!!! WARNING!!!
 // Wrap the entire contents of script.js inside of an IIFE
 // See Lecture 52, part 2
 // (Note, Step 2 will be done in the SpeakHello.js file.)
-(function (window) {
+(function () {
   var names = [
     "Yaakov",
     "John",
@@ -51,7 +51,8 @@ WARNING!!! WARNING!!!
   // Loop over the names array and say either 'Hello' or "Good Bye"
   // using either the helloSpeaker's or byeSpeaker's 'speak' method.
   // See Lecture 50, part 1
-  for (var name in names) {
+  for (let i = 0; i < names.length; i++) {
+    var name = names[i];
     // STEP 11:
     // Retrieve the first letter of the current name in the loop.
     // Use the string object's 'charAt' function. Since we are looking for
@@ -66,10 +67,10 @@ WARNING!!! WARNING!!!
     // 'j'. If the same, call byeSpeaker's 'speak' method with the current name
     // in the loop. Otherwise, call helloSpeaker's 'speak' method with the current
     // name in the loop.
-    if (firstLetter.toLowerCase == "j") {
+    if (firstLetter.toLowerCase() == "j") {
       byeSpeaker.speak(name);
     } else {
       helloSpeaker.speak(name);
     }
   }
-})(window);
+})();
